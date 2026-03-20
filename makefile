@@ -1,29 +1,29 @@
-Customer.class: Customer.java User.class CheckingAccount.class SavingsAccount.class
- javac -g Customer.java
+Customer.class: Customer.java User.class checkingAccount.class savingsAccount.class
+	javac -g Customer.java
 
-User.class: User.java HasMenu.class
- javac -g User.java
+User.class: User.java hasMenu.class
+	javac -g User.java
 
-CheckingAccount.class: CheckingAccount.java HasMenu.class
- javac -g CheckingAccount.java
+CheckingAccount.class: checkingAccount.java hasMenu.class
+	javac -g checkingAccount.java
 
-SavingsAccount.class: SavingsAccount.java CheckingAccount.class
- javac -g SavingsAccount.java
+SavingsAccount.class: savingsAccount.java checkingAccount.class
+	javac -g savingsAccount.java
 
-HasMenu.class: HasMenu.java
- javac -g HasMenu.java
+HasMenu.class: hasMenu.java
+	javac -g hasMenu.java
 
 testAdmin: Admin.class
- java Admin
+	java Admin
 
 testCustomer: Customer.class
- java Customer
+	java Customer
 
-testChecking: CheckingAccount.class
- java CheckingAccount
+testChecking: checkingAccount.class
+	java checkingAccount
 
-testSavings: SavingsAccount.class
- java SavingsAccount
+testSavings: savingsAccount.class
+	java savingsAccount
 
 clean:
- rm *.class
+	rm *.class

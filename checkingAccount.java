@@ -1,4 +1,4 @@
-java.util.*;
+import java.util.*;
 
 
 public class checkingAccount implements hasMenu {
@@ -21,7 +21,7 @@ public class checkingAccount implements hasMenu {
 		System.out.println("0) quit");
 		System.out.println("1) check balance");
 		System.out.println("2) make a deposit");
-		System.out.println("3) make a withdrawal"");
+		System.out.println("3) make a withdrawal");
 		System.out.println();
 		System.out.print("Please select an option (0-3)...");
 
@@ -30,26 +30,23 @@ public class checkingAccount implements hasMenu {
 	} //end menu
 	
 	public void start() {
-		boolean keepGoing = True;
+		boolean keepGoing = true;
 		String menuResponse;
 		while(keepGoing) {
 			menuResponse = menu();
 			if (menuResponse.equals("0")) {
-				keepGoing  = False;
+				keepGoing = false;
 			} //end if 0
-			menuResponse = menu();
 			else if (menuResponse.equals("1")) {
-				System.out.println("Checking Balance... ")
+				System.out.println("Checking Balance... ");
 				this.checkBalance();
 			} //end if 1
-			menuResponse = menu();
 			else if (menuResponse.equals("2")) {
-				System.out.println("Making a Deposit... ")
+				System.out.println("Making a Deposit... ");
 				this.makeDeposit();
 			} //end if 2
-			menuResponse = menu();
 			else if (menuResponse.equals("3")) {
-				System.out.println("Making a Withdrawl... ")
+				System.out.println("Making a Withdrawl... ");
 				this.makeWithdrawl();
 			} //end if 3
 			else {
@@ -87,14 +84,28 @@ public class checkingAccount implements hasMenu {
 			System.out.println("Not a legal input, changing to 0.");
 			dbInput = 0d;
 		} //end try
-		return dpInput
+		return dbInput;
 	} //end getDouble
 	
 	public void makeDeposit() {
-	
+		System.out.print("How much to deposit?: ");
+		double deposit = getDouble();
+		this.balance += deposit;
+		System.out.println("New blance: " + getBalanceString());
 	} //end makeDeposit
 	
 	public void makeWithdrawl() {
-	
+		System.out.print("How much to withdrawl?: ");
+		double withdrawl = getDouble();
+		if(withdrawl > balance) {
+			System.out.println("you don't have that kind of cash...");
+		} //end if negative balance
+		else if(withdrawl < 0) {
+			System.out.println("that doesn't make sense...");
+		} //end if negative withdrawl
+		else {
+			this.balance -= withdrawl;
+		} //end else
+		System.out.println("New blance: " + getBalanceString());
 	} //end makeWtihdrawl
 } //end class
