@@ -4,13 +4,13 @@ Customer.class: Customer.java User.class checkingAccount.class savingsAccount.cl
 User.class: User.java hasMenu.class
 	javac -g User.java
 
-CheckingAccount.class: checkingAccount.java hasMenu.class
+checkingAccount.class: checkingAccount.java hasMenu.class
 	javac -g checkingAccount.java
 
-SavingsAccount.class: savingsAccount.java checkingAccount.class
+savingsAccount.class: savingsAccount.java checkingAccount.class
 	javac -g savingsAccount.java
 
-HasMenu.class: hasMenu.java
+hasMenu.class: hasMenu.java
 	javac -g hasMenu.java
 
 testAdmin: Admin.class
