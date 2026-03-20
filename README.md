@@ -105,19 +105,19 @@ return interestRate
 ```
 - void setUserName(userName)
 ```
-
+this.userName = userName
 ```
 - string getUserName()
 ```
-
+return this.userName
 ```
 - void setPIN(PIN)
 ```
-
+this.PIN = PIN
 ```
 - string getPIN()
 ```
-
+return this.PIN
 ```
 - abstract string getReport()
 ```
