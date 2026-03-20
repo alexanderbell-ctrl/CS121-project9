@@ -97,11 +97,29 @@ return interestRate
 ## User
 - boolean login()
 ```
+scanner
+result is false
+print "Enter username: "
+user input userNameIn
 
+if userNameIne == this.userName
+    print "Enter PIN: "
+    user input PINIn
+        if PINIn == this.PIN
+            print "Logging in..."
+            result is true
+        else
+            print "Incorrect PIN..."
+else
+    print "This user does not exist..."
 ```
-- boolean login(userName, PIN)
+- boolean login(userNameTest, PINTest)
 ```
-
+result is false
+if userNameTest == this.userName
+    if PINTest == this.PIN
+        result is true
+return result
 ```
 - void setUserName(userName)
 ```
@@ -125,17 +143,15 @@ return this.PIN
 ```
 
 ## Customer
-- void main()
-```
-
-```
 - Customer
 ```
-
+userName = "Alice"
+PIN = "1111"
 ```
 - Customer(userName, PIN)
 ```
-
+this.userName = userName
+this.PIN = PIN
 ```
 - void start()
 ```
@@ -147,9 +163,14 @@ return this.PIN
 ```
 - void changePIN()
 ```
-
+print "Input new PIN: "
+this.PIN = userinput
 ```
 - string getReport()
 ```
+String report = "Username: " + getUserName()
+report += ", Checking: " + checking.getBalanceString()
+report += ", Savings:" + savings.getBalanceString()
 
+return report
 ```
