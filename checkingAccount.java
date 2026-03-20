@@ -22,7 +22,10 @@ public class checkingAccount implements hasMenu {
 		System.out.println("1) check balance");
 		System.out.println("2) make a deposit");
 		System.out.println("3) make a withdrawal"");
+		System.out.println();
+		System.out.print("Please select an option (0-3)...");
 
-
+		String menuResponse = input.nextLine();
+		return menuResponse;
 	} //end menu
 } //end class
