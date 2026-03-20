@@ -77,19 +77,21 @@ print "new balance: " + getBalanceString
 ## savingsAccount
 - main()
 ```
-
+calls start
 ```
 - calcInterest()
 ```
-
+interestAmount = balance*interestRate
+balance += interestAmount
+print "New balance: " + balance
 ```
-- void interestRate()
+- void interestRate(double interestRate)
 ```
-
+this.interestRate = interestRate
 ```
 - double getInterestRate()
 ```
-
+return interestRate
 ```
 
 ## User
