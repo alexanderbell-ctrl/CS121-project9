@@ -47,9 +47,9 @@ print getBalanceString
 ```
 Scanner
 String strInput = user input
-double input = 0d
+double dbInput = 0d
 try
-    result = double conversion of strInput
+    dbInput = double conversion of strInput
 catch 
     print "not an input, changing to 0"
     result = 0
