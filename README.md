@@ -161,6 +161,7 @@ keepGoing loop
     if 1 -> this.checking.start()
     if 2 -> this.savings.start()
     if 3 -> this.changePIN()
+    
 ```
 - string menu()
 ```
@@ -169,7 +170,7 @@ print customer menu
     1) manage checking
     2) manage savings
     3) change PIN
-user input ==> call function
+return user input
 ```
 - void changePIN()
 ```
