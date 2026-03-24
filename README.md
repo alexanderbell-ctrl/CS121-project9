@@ -189,12 +189,15 @@ return report
 
  For Part 2
 =
+### Alterations
+- 
 ## Admin
 -
 ```
 x
 ```
 ## Bank
+-
 ```
 x
 ```
