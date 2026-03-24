@@ -1,5 +1,5 @@
 # CS121-project9
-Bank on It Pt1
+Bank on It Pt2
 
 ## checkingAccount
 - constructor()
