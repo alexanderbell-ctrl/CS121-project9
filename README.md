@@ -190,14 +190,139 @@ return report
  For Part 2
 =
 ### Alterations
-- 
+- serializeable:
+    checkingAccount
+    User
+    Customer
 ## Admin
--
 ```
-x
+extends User; implements hasMenu, serializeable
+```
+- constructor()
+```
+userName = admin
+PIN = 1111
+```
+- String menu()
+```
+print: 0) Exit this menu
+print: 1) Full customer report
+print: 2) Add user
+print: 3) Apply interest to savings accounts
+print "Select an option:"
+user input
+return input
+```
+- void start()
+```
+IN BANK
+```
+- string getReport()
+```
+String = "Admin username: " getUserName()
+String += "Admin PIN: " getPIN()
+return String
 ```
 ## Bank
--
 ```
-x
+Admin instance
+arraylist of customers --> new instance of container class
 ```
+- constructor()
+```
+start()
+```
+- void main ()
+```
+new Bank
+```
+- void loadSampleCustomers()
+```
+customers.add(new instance "Alice","1111")
+Bob, 2222
+Cindy, 3333
+```
+- void loadCustomers()
+```
+
+```
+- void saveCustomers()
+```
+
+```
+- void fullCustomerReport()
+```
+for each customer:
+    print: customer.getreport()
+```
+- void addUser()
+```
+print "Username: "
+String userName = user input
+print "PIN: "
+String PIN = user input
+customers.add(new Customer instance(userName, PIN))
+```
+- void applyInterest()
+```
+for each customer:
+    customer.savingsAccount.calcInterest()
+```
+- void loginAsCustomer()
+```
+print "Username: "
+String INuserName = user input
+print "PIN: "
+String INPIN = user input
+
+Customer instance 'currentCustomer' = null
+for each customer:
+    if customer.login(INuserName, INPIN)
+        currentCustomer = customer
+if currentCustomer == null
+    print "Customer not found"
+else
+    currentCustomer.start()  
+```
+- String menu()
+```
+print: "
+Bank Menu
+
+0) Exit system
+1) Login as admin
+2) Login as customer
+
+Action:"
+user input
+return input
+```
+- void start()
+```
+keepGoing loop
+    String response = menu()
+    if 0:
+        stop loop
+    if 1:
+        print "Admin login"
+        startAdmin()
+    if 2:
+        print "Customer login"
+        loginAsCustomer()
+    else:
+        print "Enter a valid option"
+```
+- void startAdmin ()
+```
+keepGoing loop
+    String = admin.menu()
+    if 0:
+        stop loop
+    if 1:
+        fullCustomerReport()
+    if 2:
+        adduser()
+    if 3:
+        applyInterest()
+```
+
