@@ -10,7 +10,7 @@ public class Bank implements hasMenu {
 	} //end main
 	
 	public Bank() {
-		this.loadSampleCutomers();
+		this.loadSampleCustomers();
 		this.start();
 	} //end constructor
 
@@ -35,9 +35,11 @@ public class Bank implements hasMenu {
 			} //end if 0
 			if(userResponse.equals("1")) {
 				System.out.println("Admin login...");
-				startAdmin();
+				if(this.admin.login()) {
+					startAdmin();
+				} //end if
 			} //end if 1
-			if(userResponse.equals("2")) {
+			else if(userResponse.equals("2")) {
 				System.out.println("Customer login...");
 			} //end if 2
 			else{
@@ -55,13 +57,15 @@ public class Bank implements hasMenu {
 			} //end if 0
 			if(userResponse.equals("1")) {
 				System.out.println("Customer Report...");
-				startAdmin();
+				this.fullCustomerReport();
 			} //end if 1
 			if(userResponse.equals("2")) {
 				System.out.println("Add user...");
+				this.addUser();
 			} //end if 2
 			if(userResponse.equals("3")) {
 				System.out.println("Apply interest...");
+				this.applyInterest();
 			} //end if 2
 			else{
 				System.out.println("Enter a valid option");
@@ -74,6 +78,51 @@ public class Bank implements hasMenu {
 		customers.add(new Customer("Bob", "2222"));
 		customers.add(new Customer("Cindy", "3333"));
 	} //end loadSampleCustomers
+	
+	public void fullCustomerReport() {
+		for(Customer customer: customers) {
+			System.out.println(customer.getReport());
+		} //end for
+	} //end fullCustomerReport
+	
+	public void addUser() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Username: ");
+		String userName = input.nextLine();
+		System.out.print("PIN: ");
+		String PIN = input.nextLine();
+
+		customers.add(new Customer(userName, PIN));
+	} //end addUser
+	
+	public void loginAsCustomer() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Username: ");
+		String INuserName = input.nextLine();
+		System.out.print("PIN: ");
+		String INPIN = input.nextLine();
+
+		Customer currentCustomer = null;
+		for(Customer customer: customers) {
+			if(customer.login(INuserName, INPIN)) {
+				currentCustomer = customer;
+			} //end if
+		} //end for
+
+		if(currentCustomer == null) {
+			System.out.println("Customer not found");
+		} //end if
+		else {
+			currentCustomer.start();
+		} //end else
+	} //end loginAsCustomer
+
+	public void applyInterest() {
+		for(Customer customer: customers) {
+			customer.savings.calcInterest();
+		} //end for
+
+	} //end applyInterest
 
 } //end class
 
